@@ -6,7 +6,8 @@
 #endif
 
 #define PIN_SPEAKER 2
-#define TURN_ACCEL 5000
+#define TURN_ACCEL 6000   // Something?
+#define TURN_DURATION 12  // Deciseconds.
 
 // class default I2C address is 0x68
 // specific I2C addresses may be passed as a parameter here
@@ -103,8 +104,8 @@ void loop() {
 #endif
 
     delay(100);
-    if (abs(ax) > 2000) {
-        if (counter == 5) {
+    if (abs(ax) > TURN_ACCEL) {
+        if (counter == TURN_DURATION) {
             // Start the speaker.
             speakerState = 2;
         }
